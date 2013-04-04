@@ -1,3 +1,4 @@
+package Customization;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -18,16 +19,16 @@ public class CustomizationWindow extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
+		/*EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					CustomizationWindow frame = new CustomizationWindow();
-					frame.setVisible(true);
+					//frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
-		});
+		});*/
 	}
 
 	/**

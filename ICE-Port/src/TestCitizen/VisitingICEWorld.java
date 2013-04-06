@@ -37,31 +37,31 @@ import org.json.simple.parser.JSONParser;
 import iceworld.given.*;
 
 public class VisitingICEWorld{
-	
+
 	public static void main(String[] args) {
 
-		 
-		 /*Firstly, you need to create your own class that implements
+
+		/*Firstly, you need to create your own class that implements
 		the iceworld.given.MyIcetizen interface. The class should
 		 represents your "Icetizen" implementation in your project. 
-		
+
 		Instantiate an object of your "Icetizen" class.
 		Set its attributes.*/
 
 		TestMyIcetizen tester = new TestMyIcetizen();
-		
+
 		// *** Stictly use the ICE Port ID assigned to your group
-		
+
 		tester.setIcePortID(&lt;&lt;The ICE port ID (int) assigned to your group&gt;&gt;);
 		tester.setUsername(&lt;&lt;The (String) username of this Icetizen&gt;&gt;);
-		
+
 		// Pick any port number that this instance will use for
 		// the peer-to-peer communication of the file transfer
 		// action.
 		// It is a good idea to find a way ensuring that different
 		// instances of your ICE Port running on the same machine
 		// do not use duplicated port numbers.
-		
+
 		tester.setListeningPort(&lt;&lt;(String) A port number&gt;&gt;);
 		IcetizenLook look = new IcetizenLook();
 		look.gidB = "B001";
@@ -70,8 +70,8 @@ public class VisitingICEWorld{
 		look.gidW = "W001";
 
 		// ----------------------------------------------------------
-		
-		
+
+
 		// ----------------------------------------------------------
 		// Instantiate an object of the ICEWorldImmigration class.
 		// Pass the Icetizen object, corresponding to the one to
@@ -80,7 +80,7 @@ public class VisitingICEWorld{
 
 		ICEWorldImmigration immigration = new ICEWorldImmigration(tester);
 		// ----------------------------------------------------------
-		
+
 		// ----------------------------------------------------------
 		// Do the login as an Alien
 		if (immigration.loginAlien()){
@@ -95,7 +95,7 @@ public class VisitingICEWorld{
 		//	System.out.println("Login OK");
 		//}
 		// ----------------------------------------------------------
-		
+
 		// ----------------------------------------------------------
 		// Say "Hello"
 		if (immigration.talk("Hello")){
@@ -137,5 +137,5 @@ public class VisitingICEWorld{
 		}
 		// ----------------------------------------------------------
 	}
-	}
+}
 

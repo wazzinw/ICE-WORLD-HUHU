@@ -11,7 +11,7 @@ import javax.swing.JWindow;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
-//C:\\Users\\ItchWaLK3R\\Desktop\\huhuhu\\123.jpg
+
 public class splashScreen extends JWindow{
 	// put the image into the run 
 	 
@@ -32,9 +32,9 @@ public class splashScreen extends JWindow{
 	public void paint(Graphics g){
 		
 	g.drawImage(huhuImage,0,0,this);
-	//g.setColor(Color.white);
-	//g.setFont()
-	//g.drawString("ICE PORT LOADING.....",0,0);
+//	g.setColor(Color.white);
+//	g.setFont();
+//	g.drawString("ICE PORT LOADING.....",0,0);
 	}
 	public static void main (String [] args){
 		splashScreen sc1 = new splashScreen();
@@ -47,8 +47,8 @@ public class splashScreen extends JWindow{
 			e.printStackTrace();
 		}
 		JFrame frame=new JFrame("splash screen");  
-		 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
-		frame.setSize(500,500);  
+		 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  		 
+		 frame.setSize(500,500);  
 		 frame.setVisible(true);
 		 frame.setResizable(false);
 			

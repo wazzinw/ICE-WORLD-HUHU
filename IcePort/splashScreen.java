@@ -11,14 +11,13 @@ import javax.swing.JWindow;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
-//C:\\Users\\ItchWaLK3R\\Desktop\\huhuhu\\123.jpg
+
 public class splashScreen extends JWindow{
 	// put the image into the run 
 	 
 	// make the image ,since it set but make it changeable then make it an icon
-	String picname = "v2DispicableMe1.jpg";
-	Image  huhuImage = Toolkit.getDefaultToolkit().getImage(picname);
-	ImageIcon huhuIcon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(picname));
+	Image  huhuImage = Toolkit.getDefaultToolkit().getImage("v2DispicableMe1.jpg");
+	ImageIcon huhuIcon = new ImageIcon(Toolkit.getDefaultToolkit().getImage("v2DispicableMe1.jpg"));
 	//final int pauseTime ;
 	public splashScreen (){
 		

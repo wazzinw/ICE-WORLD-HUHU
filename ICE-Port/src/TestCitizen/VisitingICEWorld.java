@@ -37,6 +37,57 @@ import org.json.simple.parser.JSONParser;
 import iceworld.given.*;
 
 public class VisitingICEWorld{
+	public class Icetizen implements iceworld.given.MyIcetizen{
+
+		@Override
+		public int getIcePortID() {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+
+		@Override
+		public IcetizenLook getIcetizenLook() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public int getListeningPort() {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+
+		@Override
+		public String getUsername() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public void setIcePortID(int arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void setIcetizenLook(IcetizenLook arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void setListeningPort(int arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void setUsername(String arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
 
 	public static void main(String[] args) {
 
@@ -47,10 +98,11 @@ public class VisitingICEWorld{
 
 		Instantiate an object of your "Icetizen" class.
 		Set its attributes.*/
+		
 
 		TestMyIcetizen tester = new TestMyIcetizen();
 
-		// *** Stictly use the ICE Port ID assigned to your group
+		// *** Strictly use the ICE Port ID assigned to your group
 
 		tester.setIcePortID(&lt;&lt;The ICE port ID (int) assigned to your group&gt;&gt;);
 		tester.setUsername(&lt;&lt;The (String) username of this Icetizen&gt;&gt;);

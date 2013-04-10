@@ -2,17 +2,14 @@
 
 *goal -> make an image appear when launched then another it disappers leaving a new layout  
 */
-import java.awt.Graphics;
-import java.awt.Toolkit;
-import java.awt.Image;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
-import javax.swing.JWindow;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 
 
-public class splashScreen extends JWindow{
+public class splashScreen extends JWindow implements Runnable{
 	// put the image into the run 
 	 
 	// make the image ,since it set but make it changeable then make it an icon
@@ -29,6 +26,7 @@ public class splashScreen extends JWindow{
 	setVisible(true);
 	
 	}
+	
 	public void paint(Graphics g){
 		
 	g.drawImage(huhuImage,0,0,this);
@@ -36,22 +34,61 @@ public class splashScreen extends JWindow{
 //	g.setFont();
 //	g.drawString("ICE PORT LOADING.....",0,0);
 	}
-	public static void main (String [] args){
-		splashScreen sc1 = new splashScreen();
+
+
+	
+	
+//	public static void main (String [] args){
+//		splashScreen sc1 = new splashScreen();
+//		try
+//		{
+//			Thread.sleep(4000);
+//			sc1.dispose();
+//		}
+//		catch (Exception e){
+//			e.printStackTrace();
+//		}
+//		JFrame frame=new JFrame("splash screen");  
+//		 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  		 
+//		 frame.setSize(500,500);  
+//		 frame.setVisible(true);
+//		 frame.setResizable(false);
+//			
+//		
+//	}
+	
+	public void run (){
+		
 		try
 		{
 			Thread.sleep(4000);
-			sc1.dispose();
+			dispose();
+			
 		}
 		catch (Exception e){
 			e.printStackTrace();
 		}
-		JFrame frame=new JFrame("splash screen");  
+		
+		final JFrame frame=new JFrame("splash screen");  
+		
 		 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  		 
 		 frame.setSize(500,500);  
 		 frame.setVisible(true);
 		 frame.setResizable(false);
+		 
+		 JButton logout = new JButton("Logout");
+		 logout.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					
+					test1.immigration.logout();
+					frame.dispose();
+
+					
+				}
+			});
+		 frame.add(logout);
 			
 		
 	}
+	
 }

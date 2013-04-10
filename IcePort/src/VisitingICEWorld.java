@@ -1,4 +1,4 @@
-package TestCitizen;
+
 
 // This example shows:
 //    - how to login to the ICE World as Inhabitants/Aliens.
@@ -11,6 +11,7 @@ package TestCitizen;
 //------------------------------------------------------------------------------
 
 // import whatever needed
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -37,57 +38,7 @@ import org.json.simple.parser.JSONParser;
 import iceworld.given.*;
 
 public class VisitingICEWorld{
-	public class Icetizen implements iceworld.given.MyIcetizen{
-
-		@Override
-		public int getIcePortID() {
-			// TODO Auto-generated method stub
-			return 0;
-		}
-
-		@Override
-		public IcetizenLook getIcetizenLook() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public int getListeningPort() {
-			// TODO Auto-generated method stub
-			return 0;
-		}
-
-		@Override
-		public String getUsername() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public void setIcePortID(int arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void setIcetizenLook(IcetizenLook arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void setListeningPort(int arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void setUsername(String arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-		
-	}
+	
 
 	public static void main(String[] args) {
 
@@ -104,8 +55,8 @@ public class VisitingICEWorld{
 
 		// *** Strictly use the ICE Port ID assigned to your group
 
-		tester.setIcePortID(&lt;&lt;The ICE port ID (int) assigned to your group&gt;&gt;);
-		tester.setUsername(&lt;&lt;The (String) username of this Icetizen&gt;&gt;);
+		tester.setIcePortID(251);
+		tester.setUsername("Thanaspakorn.N");
 
 		// Pick any port number that this instance will use for
 		// the peer-to-peer communication of the file transfer
@@ -114,7 +65,7 @@ public class VisitingICEWorld{
 		// instances of your ICE Port running on the same machine
 		// do not use duplicated port numbers.
 
-		tester.setListeningPort(&lt;&lt;(String) A port number&gt;&gt;);
+		tester.setListeningPort(200);
 		IcetizenLook look = new IcetizenLook();
 		look.gidB = "B001";
 		look.gidS = "S001";
@@ -142,10 +93,10 @@ public class VisitingICEWorld{
 
 		// ----------------------------------------------------------
 		// If you want to do the login as an Inhabitant
-		//if (immigration.login(&lt;&lt;(String) the password of the Icetizen&gt;&gt;))
-		//{
-		//	System.out.println("Login OK");
-		//}
+		if (immigration.login("3277279"))
+		{
+			System.out.println("Login OK");
+		}
 		// ----------------------------------------------------------
 
 		// ----------------------------------------------------------
@@ -164,7 +115,7 @@ public class VisitingICEWorld{
 
 		// ----------------------------------------------------------
 		// Walk to the (9,4) location of the ICE World ground
-		if (immigration.walk(9, 4)){
+		if (immigration.walk(10, 10)){
 			System.out.println("Walk OK");
 		}
 		// ----------------------------------------------------------
@@ -177,16 +128,16 @@ public class VisitingICEWorld{
 		look2.gidH = "H008";
 		look2.gidW = "W046";
 		tester.setIcetizenLook(look);
-		if (ICEWorld.customization(look2)){
-			System.out.println("Customization OK");
-		}
+//		if (ICEWorld.customization(look2)){
+//			System.out.println("Customization OK");
+//		}
 		// ----------------------------------------------------------
 
 		// ----------------------------------------------------------
 		// Log out of the ICE World
-		if (ICEWorld.logout()){
-			System.out.println("Logout OK");
-		}
+//		if (ICEWorld.logout()){
+//			System.out.println("Logout OK");
+//		}
 		// ----------------------------------------------------------
 	}
 }

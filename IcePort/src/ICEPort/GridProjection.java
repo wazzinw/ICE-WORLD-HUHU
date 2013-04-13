@@ -69,10 +69,10 @@ public class GridProjection extends JPanel{
 	
 	public void paintComponent(Graphics g){
 		int startX=0, startY=0;
-		g.setColor(Color.black);
+		g.setColor(new Color(192,192,192));
 		g.fillRect(0, 0, width, height);
 		
-		g.setColor(Color.green.darker());
+		g.setColor(new Color(0,204,102));
 		g.fillPolygon(xCo,yCo,4);
 		if(gridX>-1&&gridY>-1 && gridX<101&&gridY<101){
 			 startX = diaY*(gridX-gridY+100)/100;

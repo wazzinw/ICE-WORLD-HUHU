@@ -52,10 +52,13 @@ public class ICEFrame extends JFrame implements MouseMotionListener,MouseListene
 	private JLayeredPane layeredPane = new JLayeredPane();
 	private TopPane top;
 	private BottomPane bottom = new BottomPane();
+	private BGM bg;
+	JFrame bgf = new JFrame();
 	
 	public ICEFrame() {
 		setSize(800,600);
 		setGUI();
+		
 		addMouseMotionListener(this);
 		addMouseListener(this);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -64,10 +67,13 @@ public class ICEFrame extends JFrame implements MouseMotionListener,MouseListene
 	}
 	private void setGUI() {
 		
-	    top = new TopPane();
+		File bgm = new File("Track1.wav");
+		bg = new BGM(bgm);
+		bgf.add(bg);
+		
+		top = new TopPane("raining");
 		//Scroll Pane
 		scroll = new JScrollPane(iso);
-		//scroll.add(new Snow());
 		scroll.setWheelScrollingEnabled(true);
 		
 		//layeredPane.setBounds(0, 0, 800, 500);
@@ -75,7 +81,7 @@ public class ICEFrame extends JFrame implements MouseMotionListener,MouseListene
 		this.add(layeredPane,BorderLayout.CENTER);
 		
 		scroll.setBounds(0, 0, 800, 500);
-		top.setOpaque(false);
+		
 		top.setBounds(0,0,800,500);
 		bottom.setBounds(400, 100, 400, 400);
 		layeredPane.add(bottom,new Integer(0),0);
@@ -86,6 +92,7 @@ public class ICEFrame extends JFrame implements MouseMotionListener,MouseListene
 		functionPanel = new JPanel();
 		getContentPane().add(functionPanel, BorderLayout.SOUTH);
 		functionPanel.setLayout(new BorderLayout(0, 0));
+		//functionPanel.add(soundPanel,BorderLayout.WEST);
 		
 		setPanel = new JPanel(new FlowLayout());
 		refresh = new JButton("Refresh Interval");
@@ -111,8 +118,6 @@ public class ICEFrame extends JFrame implements MouseMotionListener,MouseListene
 		//chatField.addActionListener(t);
 		
 
-		
-		
 		talk = new JButton("Talk");
 		talk.addActionListener(b);
 		chatPanel.add(talk);
@@ -207,7 +212,7 @@ private void menu() {
   		file.addSeparator();
   		file.add(quit);
   		
-  		soundSet = new JMenuItem();
+  		soundSet = new JMenuItem("Sound Setting");
   		soundSet.addActionListener(l);
   		
   		edit.add(customIce);
@@ -277,12 +282,17 @@ private void menu() {
 		}
 
 		private void soundSet() {
-			// TODO Auto-generated method stub
+			
+			bgf.setSize(300,100);
+			bgf.setVisible(true);
+			
+		    
 			
 		}
 
 		private void logOut() {
 			test1.immigration.logout();
+			dispose();
 			test1 x = new test1("keyartihi (800x411).jpg");
 			
 			
@@ -352,10 +362,13 @@ private void menu() {
 			JButton source = (JButton) e.getSource();
 			
 			if(source==yell){
-				test1.immigration.yell(msg.substring(0, 10));
+				
+				yellMethod();
+				//System.out.println(chatField.getText());
 			}else if(source==talk){
-				System.out.println("talk");
-				test1.immigration.talk(msg.substring(0, 100));
+				
+				talkMethod();
+				//System.out.println(chatField.getText());
 			}else if(source==zoomIn){
 				zIn();
 			}else if(source==zoomOut){
@@ -368,6 +381,31 @@ private void menu() {
 				test1.immigration.logout();
 				dispose();
 				test1 x = new test1("keyartihi (800x411).jpg");
+			}
+			
+		}
+		private void yellMethod() {
+			
+			msg = chatField.getText();
+			if(msg.length()<10){
+			test1.immigration.yell(msg);
+			}else{
+				msg = msg.substring(0, 10);
+				chatField.setText(msg);
+				test1.immigration.yell(msg);
+				
+			}
+			
+		}
+		private void talkMethod() {
+			msg = chatField.getText();
+			if(msg.length()<100){
+			test1.immigration.talk(msg);
+			}else{
+				msg = msg.substring(0, 100);
+				chatField.setText(msg);
+				test1.immigration.talk(msg);
+				
 			}
 			
 		}

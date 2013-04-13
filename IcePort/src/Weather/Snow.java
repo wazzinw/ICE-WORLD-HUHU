@@ -17,7 +17,7 @@ public class Snow extends Applet implements Runnable{
 			repaint();
 			try {
 				repaint();
-				Thread.sleep(200);
+				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -29,6 +29,7 @@ public class Snow extends Applet implements Runnable{
 
 }
 	public void paint(Graphics g){
+		//this.isOpaque();
 		setSize(800,500);
 		draw(g);
 	}
@@ -40,7 +41,7 @@ public class Snow extends Applet implements Runnable{
 		 xCo = (int) (Math.random()*800);
 		 yCo = (int) (Math.random()*600);
 		
-		g.fillOval(xCo, yCo, 10, 10);
+		g.fillOval(xCo, yCo, 8, 8);
 		
 		}
 	}

@@ -1,19 +1,21 @@
-/*Ontiretse Keipidile 
- * create an applet showing some snow 
- * it is animated 
+package a;
+/* ontiretse keipidile 
+ * create a animation of rain on an applet 
+ *  
  */
 import java.awt.*;
 import java.applet.Applet;
 
-
-public class snow extends Applet implements Runnable {
+public class rain extends Applet implements Runnable{
+	
 	
 	protected Thread mainThread;
 	protected int delay;
 	
 	public  void init()
 	{
-	mainThread = null; 
+	mainThread = null;
+	// higher delay value results in slower "rain" 
 	delay = 200;
 	}
 	public void start(){
@@ -32,19 +34,20 @@ public class snow extends Applet implements Runnable {
 		}
 	}
 	public void paint(Graphics g){
-		
 		Dimension d = this.getSize();
-		g.setColor(Color.GRAY);
-		g.fillRect(0, 0, d.width, d.height);
-		
 		g.setColor(Color.WHITE);
-		// higher limit for the loop will result in more "snow" 
+		g.fillRect(0, 0, d.width, d.height);
+		draw(g,d);
+		
+	}
+	public static void draw(Graphics g, Dimension d){
+		g.setColor(Color.white);
+		// higher limit for the loop will result in more "rain" 
 		for (int i =0 ; i < 500 ; i++){
 			int xcoord = (int)(Math.random()*d.width)+5;
 			int ycoord = (int)(Math.random()*d.height)+5;
-			//g.drawLine(xcoord, ycoord, xcoord-5, ycoord+10);
-			g.fillOval(xcoord, ycoord, 5, 5);
+			g.drawLine(xcoord, ycoord, xcoord-5, ycoord+10);
+			//g.fillOval(xcoord, ycoord, 10, 10);
 		}
 	}
-	}
-		
+}

@@ -17,7 +17,7 @@ public class Sound {
 		JButton button = new JButton("Start");
 		frame.add(button);
 		button.addActionListener(new AL());
-		frame.show(true);
+		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// TODO Auto-generated method stub
 

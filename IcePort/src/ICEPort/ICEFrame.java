@@ -27,7 +27,9 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import Login.Customize;
-import Login.test1;;
+import Login.test1;
+
+import Weather.Snow;
 
 
 
@@ -48,7 +50,7 @@ public class ICEFrame extends JFrame implements MouseMotionListener,MouseListene
 	private String msg = null;
 	private JSlider talkSlider;
 	private JLayeredPane layeredPane = new JLayeredPane();
-	private TopPane top = new TopPane();
+	private TopPane top;
 	private BottomPane bottom = new BottomPane();
 	
 	public ICEFrame() {
@@ -62,9 +64,10 @@ public class ICEFrame extends JFrame implements MouseMotionListener,MouseListene
 	}
 	private void setGUI() {
 		
-		
+	    top = new TopPane();
 		//Scroll Pane
 		scroll = new JScrollPane(iso);
+		//scroll.add(new Snow());
 		scroll.setWheelScrollingEnabled(true);
 		
 		//layeredPane.setBounds(0, 0, 800, 500);
@@ -72,8 +75,8 @@ public class ICEFrame extends JFrame implements MouseMotionListener,MouseListene
 		this.add(layeredPane,BorderLayout.CENTER);
 		
 		scroll.setBounds(0, 0, 800, 500);
-	
-		top.setBounds(0,0,400,400);
+		top.setOpaque(false);
+		top.setBounds(0,0,800,500);
 		bottom.setBounds(400, 100, 400, 400);
 		layeredPane.add(bottom,new Integer(0),0);
 		layeredPane.add(scroll,new Integer(1),0);

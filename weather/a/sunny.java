@@ -1,3 +1,4 @@
+package a;
 /*Ontiretse Keipidile 
  * create an applet showing the sun travelling across 
  * it is animated 
@@ -8,8 +9,9 @@ public class sunny extends Applet implements Runnable {
 	
 	protected Thread mainThread;
 	protected int delay;
-	int i=0;
-	
+	static int i =0 ;
+	//static int y = 500;
+	Dimension d;
 	public  void init()
 	{
 	mainThread = null; 
@@ -51,27 +53,32 @@ public class sunny extends Applet implements Runnable {
     
 	public void paint (Graphics g){
 		setSize (600,600);
-		Dimension d = this.getSize();
-		Image  sunImage = Toolkit.getDefaultToolkit().getImage("sunglasses2smaller.gif");
-		Image  cloudImage = Toolkit.getDefaultToolkit().getImage("two_glossy_cloud_S.png");
-		
-		int cloudwidth = cloudImage.getHeight(null);
-		int cloudheight = cloudImage.getHeight(null);
-		
-		if (i<d.width){
-			g.drawImage(sunImage,i,0,null);
-			g.drawImage(cloudImage, i+sunImage.getHeight(null),40 , null);
-			g.drawImage(cloudImage, i+ cloudwidth*2,d.height-cloudheight , null);
-			//g.drawImage(cloudImage, i +width,d.height-height*2, null);
-			g.drawImage(cloudImage, i ,d.height-cloudheight*2 ,null);
-			i+=5;
-		}else {
-			i=0;
-			
-		}
+		 d = this.getSize();
+		draw(g,d);
 		
 		
 		
 	}
+public static void draw(Graphics g,Dimension d){
+		
+	Image  sunImage = Toolkit.getDefaultToolkit().getImage("sunglasses2smaller.gif");
+	Image  cloudImage = Toolkit.getDefaultToolkit().getImage("two_glossy_cloud_S.png");
+	
+	int cloudwidth = cloudImage.getHeight(null);
+	int cloudheight = cloudImage.getHeight(null);
+	
+	if (i<d.width){
+		g.drawImage(sunImage,i,0,null);
+		g.drawImage(cloudImage, i+sunImage.getHeight(null),40 , null);
+		g.drawImage(cloudImage, i+ cloudwidth*2,d.height-cloudheight , null);
+		g.drawImage(cloudImage, i ,d.height-cloudheight*2 ,null);
+		i+=5;
+	}else {
+		i=0;
+		
+	}
+	
+	
 
+}
 }

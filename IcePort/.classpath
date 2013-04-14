@@ -6,5 +6,6 @@
 	<classpathentry kind="lib" path="1363922261.given"/>
 	<classpathentry kind="lib" path="1363922592.1"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="/weather"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

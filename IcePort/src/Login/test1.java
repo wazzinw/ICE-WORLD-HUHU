@@ -69,7 +69,7 @@ public class test1 extends JFrame {
 	int numdat= 0;
 	NameCheck[] check = new NameCheck[200];
 	JScrollPane scrollPane;
-	final JList list = new JList();
+	final JList<Object> list = new JList<Object>();
 	String[]values;
 	
 	
@@ -92,6 +92,7 @@ public class test1 extends JFrame {
 	public static void main(String [] args){
 		test1 mainFrame = new test1("keyartihi (800x411).jpg");
 		mainFrame.setVisible(true); 
+		mainFrame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 	}
 
 	/**
@@ -101,7 +102,7 @@ public class test1 extends JFrame {
 	
 	public test1(String r) {
 		
-		
+		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -278,7 +279,7 @@ public class test1 extends JFrame {
 		getContentPane().add(btnLogin1);
 
 //------------------------------------------------------
-		final JComboBox comboBox = new JComboBox();
+		final JComboBox<Object> comboBox = new JComboBox<Object>();
 
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -367,6 +368,7 @@ public class test1 extends JFrame {
 	
 	///Alien
 	public test1(String r,int i){
+		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setVisible(true);
 		this.setResizable(false);
 		this.setLocation(295, 180);

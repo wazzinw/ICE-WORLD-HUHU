@@ -11,7 +11,7 @@ public class BottomPane extends JPanel {
 		setSize(800,600);
 	}
 	public void paintComponent(Graphics g){
-		g.setColor(Color.blue);
+		g.setColor(Color.red);
 		g.drawRect(90, 90, 200, 200);
 	}
 

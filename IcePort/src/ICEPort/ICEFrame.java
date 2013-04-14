@@ -24,6 +24,10 @@ import java.net.URL;
 import java.io.*;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 import javax.swing.*;
 
 import Login.Customize;
@@ -71,7 +75,7 @@ public class ICEFrame extends JFrame implements MouseMotionListener,MouseListene
 		bg = new BGM(bgm);
 		bgf.add(bg);
 		
-		top = new TopPane("sunny");
+		top = new TopPane("snowing");
 		//Scroll Pane
 		scroll = new JScrollPane(iso);
 		scroll.setWheelScrollingEnabled(true);
@@ -235,8 +239,32 @@ private void menu() {
 
 	   		if(source==quit){
 	   			quitDialog();
+	   			try {
+	   				AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
+	   				new File("button-10.wav"));
+	   				Clip clip = AudioSystem.getClip();
+	   				clip.open(audioInputStream);
+	   				FloatControl gainControl =
+	   				(FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+	   				/*gainControl.setValue(-10.0f);*/ // Reduce volume by 10 decibels.
+	   				clip.start();
+	   				} catch (Exception error) {
+	   				error.printStackTrace();
+	   				}
 	   		}else if(source==newWindow){
 	   			test1 x = new test1("keyartihi (800x411).jpg");
+	   			try {
+	   				AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
+	   				new File("button-10.wav"));
+	   				Clip clip = AudioSystem.getClip();
+	   				clip.open(audioInputStream);
+	   				FloatControl gainControl =
+	   				(FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+	   				/*gainControl.setValue(-10.0f);*/ // Reduce volume by 10 decibels.
+	   				clip.start();
+	   				} catch (Exception error) {
+	   				error.printStackTrace();
+	   				}
 	   			
 	   		}else if(source==author){
 	   			showAuthor();
@@ -311,7 +339,7 @@ private void menu() {
 		}
 
 		private void quitDialog() {
-			test1.immigration.logout();
+			//test1.immigration.logout();
 			dispose();
 			System.exit(0);
 			

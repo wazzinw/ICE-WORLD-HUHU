@@ -1,5 +1,6 @@
 package Login;
 // Wasin.W 4218759
+// Peerasarn.K 9384428
 import iceworld.given.ICEWorldImmigration;
 import iceworld.given.IcetizenLook;
 
@@ -7,6 +8,10 @@ import iceworld.given.IcetizenLook;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -140,6 +145,18 @@ public class test1 extends JFrame {
 
 		btnLogin1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
+					new File("button-10.wav"));
+					Clip clip = AudioSystem.getClip();
+					clip.open(audioInputStream);
+					FloatControl gainControl =
+					(FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+					/*gainControl.setValue(-10.0f);*/ // Reduce volume by 10 decibels.
+					clip.start();
+					} catch (Exception error) {
+					error.printStackTrace();
+					}
 
 				int i;
 				boolean c = false;

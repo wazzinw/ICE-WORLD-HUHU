@@ -71,7 +71,7 @@ public class ICEFrame extends JFrame implements MouseMotionListener,MouseListene
 		bg = new BGM(bgm);
 		bgf.add(bg);
 		
-		top = new TopPane("raining");
+		top = new TopPane("sunny");
 		//Scroll Pane
 		scroll = new JScrollPane(iso);
 		scroll.setWheelScrollingEnabled(true);

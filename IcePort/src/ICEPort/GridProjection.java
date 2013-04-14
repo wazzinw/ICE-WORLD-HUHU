@@ -40,8 +40,7 @@ public class GridProjection extends JPanel{
 	        	
 	        	if(gridX>-1&&gridY>-1 && gridX<101&&gridY<101)
 	        	{   walk(gridX,gridY);
-	        		//posX = 405;
-	        		//posY = 4;
+	        		
 	        		System.out.println("Position: "+posX+" , "+posY);
 	        	}
 	        	repaint();

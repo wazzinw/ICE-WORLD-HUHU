@@ -3,58 +3,24 @@ package Login;
 import iceworld.given.ICEWorldImmigration;
 import iceworld.given.IcetizenLook;
 
-import java.awt.EventQueue;
+
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.imageio.ImageIO;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.JButton;
-import javax.swing.SpringLayout;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JPasswordField;
-import java.awt.Color;
-import javax.swing.JToolBar;
+import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.util.Iterator;
 import java.util.Scanner;
-
-import javax.swing.DefaultListModel;
-import javax.swing.JTabbedPane;
-import javax.swing.JInternalFrame;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.JList;
-import javax.swing.AbstractListModel;
-import javax.swing.JSpinner;
-import javax.swing.JTextPane;
-import javax.swing.JFormattedTextField;
-import javax.swing.JScrollPane;
-import javax.swing.JScrollBar;
-import javax.swing.ListSelectionModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.event.ListSelectionEvent;
 
-import ICEPort.ICEFrame;
 
 
 
@@ -71,12 +37,8 @@ public class test1 extends JFrame {
 	JScrollPane scrollPane;
 	final JList<Object> list = new JList<Object>();
 	String[]values;
-	
-	
-	
 
-	    
-    
+
 	public void changeToAlien(){
 		this.setVisible(false);
 		test1 a = new test1("venomapip (1024x476) (800x372).jpg",1);
@@ -99,9 +61,9 @@ public class test1 extends JFrame {
 	 * Create the frame.
 	 * @wbp.parser.constructor
 	 */
-	
+
 	public test1(String r) {
-		
+
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		addMouseListener(new MouseAdapter() {
 			@Override
@@ -109,7 +71,7 @@ public class test1 extends JFrame {
 				scrollPane.setVisible(false);
 			}
 		});
-		
+
 
 
 		this.setVisible(true);
@@ -127,7 +89,7 @@ public class test1 extends JFrame {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-//----------------------------------------------------------------------------------
+		//----------------------------------------------------------------------------------
 		//Layout
 		SpringLayout springLayout = new SpringLayout();
 		getContentPane().setLayout(springLayout);
@@ -145,7 +107,7 @@ public class test1 extends JFrame {
 
 		final JTextField txtHuhuHu = new JTextField();
 		txtHuhuHu.addMouseListener(new MouseAdapter() {
-			
+
 			public void mouseClicked(MouseEvent arg0) {
 				scrollPane.setVisible(true);
 			}
@@ -173,15 +135,15 @@ public class test1 extends JFrame {
 		springLayout.putConstraint(SpringLayout.WEST, btnLogin1, 148, SpringLayout.WEST, getContentPane());
 		springLayout.putConstraint(SpringLayout.SOUTH, btnLogin1, 70, SpringLayout.SOUTH, lblNewLabel);
 		springLayout.putConstraint(SpringLayout.EAST, btnLogin1, -572, SpringLayout.EAST, getContentPane());
-//---------------------------------------------------------------------------------------------------------------
+		//---------------------------------------------------------------------------------------------------------------
 		//Login Action
-		
+
 		btnLogin1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				int i;
 				boolean c = false;
-				
+
 				String user = txtHuhuHu.getText();
 				String pass = new String(passwordField.getPassword());
 				TestMyIcetizen tester = new TestMyIcetizen();
@@ -194,7 +156,7 @@ public class test1 extends JFrame {
 				look.gidS = "S001";
 				look.gidH = "H001";
 				look.gidW = "W001";
-				
+
 
 
 				immigration = new ICEWorldImmigration(tester);
@@ -209,31 +171,31 @@ public class test1 extends JFrame {
 					splashScreen sc = new splashScreen();
 					Thread a = new Thread(sc);
 					a.start();
-					
-					
-					  
-					
+
+
+
+
 					try {
-					
+
 						Scanner inn = new Scanner(new File("SuggesttedUser.txt"));
-	
+
 						BufferedWriter outt = new BufferedWriter(new FileWriter("SuggesttedUser.txt",true));
- 
-					    while(inn.hasNext()){
-					    	//System.out.println(inn.nextLine());
-					    	if(user.equals(inn.nextLine())){
-				    		c = true;
-					    	}
-					    }
-					    if(!c){
-					    	outt.write(user);
-					    	outt.newLine();
-					  
-					    }
-					    
-					    inn.close();
-					    outt.close();
-					    
+
+						while(inn.hasNext()){
+							//System.out.println(inn.nextLine());
+							if(user.equals(inn.nextLine())){
+								c = true;
+							}
+						}
+						if(!c){
+							outt.write(user);
+							outt.newLine();
+
+						}
+
+						inn.close();
+						outt.close();
+
 					} catch (FileNotFoundException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -241,14 +203,14 @@ public class test1 extends JFrame {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-				
-					
-					
+
+
+
 
 				}else{
 					System.out.println("huhu");
 					for( i =0;i<numdat;i++){
-						
+
 						if(user.equals(check[i].name)){						
 							check[i].cnt++;
 							System.out.println(check[i].name + check[i].cnt );
@@ -260,14 +222,14 @@ public class test1 extends JFrame {
 					}
 					if(i==numdat){
 						//System.out.println("i = "+i);
-						
+
 						NameCheck a = new NameCheck(user);
 
 						check[numdat]= a;
 						System.out.println(check[numdat].name + check[numdat].cnt );
 						numdat++;
-						
-						
+
+
 
 					}
 				}
@@ -278,7 +240,7 @@ public class test1 extends JFrame {
 
 		getContentPane().add(btnLogin1);
 
-//------------------------------------------------------
+		//------------------------------------------------------
 		final JComboBox<Object> comboBox = new JComboBox<Object>();
 
 		comboBox.addActionListener(new ActionListener() {
@@ -298,30 +260,30 @@ public class test1 extends JFrame {
 		springLayout.putConstraint(SpringLayout.WEST, comboBox, 0, SpringLayout.WEST, txtHuhuHu);
 		springLayout.putConstraint(SpringLayout.SOUTH, comboBox, -20, SpringLayout.NORTH, txtHuhuHu);
 		springLayout.putConstraint(SpringLayout.EAST, comboBox, -546, SpringLayout.EAST, getContentPane());
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Inhabitant","Alien" }));
+		comboBox.setModel(new DefaultComboBoxModel<Object>(new String[] {"Inhabitant","Alien" }));
 		getContentPane().add(comboBox);
-		
-		
+
+
 		try {
 			int line=0;
 			Scanner inn = new Scanner(new File("SuggesttedUser.txt"));
 
-		    while(inn.hasNext()){
-		    inn.nextLine();
-		    line++;
-		    }	    
-		    inn.close();
-		    
-		    inn = new Scanner(new File("SuggesttedUser.txt"));
-		    values = new String[line];
-	    
-		    for(int k =0;k<line;k++){
-		    	values[k]= inn.nextLine();
-		    }
-			    inn.close();
-		    
-		   
-		    
+			while(inn.hasNext()){
+				inn.nextLine();
+				line++;
+			}	    
+			inn.close();
+
+			inn = new Scanner(new File("SuggesttedUser.txt"));
+			values = new String[line];
+
+			for(int k =0;k<line;k++){
+				values[k]= inn.nextLine();
+			}
+			inn.close();
+
+
+
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -329,22 +291,22 @@ public class test1 extends JFrame {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
+
 		MouseListener mouseListener = new MouseAdapter() {
-		    public void mouseClicked(MouseEvent e) {
-		        if (e.getClickCount() == 1) {
+			public void mouseClicked(MouseEvent e) {
+				if (e.getClickCount() == 1) {
 
-		           String selectedItem = (String) list.getSelectedValue();	
-		           txtHuhuHu.setText(selectedItem);
+					String selectedItem = (String) list.getSelectedValue();	
+					txtHuhuHu.setText(selectedItem);
 
-		         }
-		    }
+				}
+			}
 		};
-		
+
 		list.addMouseListener(mouseListener);
-		
-		list.setModel(new AbstractListModel() {
-			
+
+		list.setModel(new AbstractListModel<Object>() {
+
 			public int getSize() {
 				return values.length;
 			}
@@ -353,8 +315,8 @@ public class test1 extends JFrame {
 			}
 		});
 		scrollPane = new JScrollPane(list);
-		
-		
+
+
 		springLayout.putConstraint(SpringLayout.NORTH,scrollPane, 0, SpringLayout.NORTH, txtHuhuHu);
 		springLayout.putConstraint(SpringLayout.WEST, scrollPane, 0, SpringLayout.EAST, txtHuhuHu);
 		springLayout.putConstraint(SpringLayout.SOUTH, scrollPane, 13, SpringLayout.SOUTH, lblNewLabel);
@@ -365,7 +327,7 @@ public class test1 extends JFrame {
 
 
 	}
-	
+
 	///Alien
 	public test1(String r,int i){
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -392,14 +354,14 @@ public class test1 extends JFrame {
 		springLayout.putConstraint(SpringLayout.SOUTH, btnLogin, -112, SpringLayout.SOUTH, getContentPane());
 		springLayout.putConstraint(SpringLayout.EAST, btnLogin, -572, SpringLayout.EAST, getContentPane());
 		btnLogin.addActionListener(new ActionListener() {
-			
+
 			///////////////ActionListener Alien/////////////
 			public void actionPerformed(ActionEvent e) {
-				
+
 				TestMyIcetizen tester = new TestMyIcetizen();
 				tester.setIcePortID(251);
 				tester.setListeningPort(200);
-				
+
 				immigration = new ICEWorldImmigration(tester);
 
 				if (immigration.loginAlien())
@@ -411,7 +373,7 @@ public class test1 extends JFrame {
 					splashScreen sc = new splashScreen();
 					Thread a = new Thread(sc);
 					a.start();
-					
+
 
 				}
 
@@ -444,8 +406,8 @@ public class test1 extends JFrame {
 		});
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Alien", "Inhabitant"}));
 		getContentPane().add(comboBox);
-		
-		
+
+
 
 	}
 

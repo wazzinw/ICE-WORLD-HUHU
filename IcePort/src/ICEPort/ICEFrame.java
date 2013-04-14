@@ -70,12 +70,11 @@ public class ICEFrame extends JFrame implements MouseMotionListener,MouseListene
 		
 	}
 	private void setGUI() {
-		
 		File bgm = new File("Track1.wav");
-		bg = new BGM(bgm);
-		bgf.add(bg);
+		//bg = new BGM(bgm);
+		//bgf.add(bg);
 		
-		top = new TopPane("snowing");
+		top = new TopPane("");
 		//Scroll Pane
 		scroll = new JScrollPane(iso);
 		scroll.setWheelScrollingEnabled(true);
@@ -165,7 +164,7 @@ public class ICEFrame extends JFrame implements MouseMotionListener,MouseListene
 	    g2.dispose();
 	    return resizedImg;
 	}
-private void menu() {
+	private void menu() {
 		 menuBar = new JMenuBar();
 	  		
 	  		
@@ -236,9 +235,7 @@ private void menu() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			JMenuItem source = (JMenuItem) e.getSource();
-
 	   		if(source==quit){
-	   			quitDialog();
 	   			try {
 	   				AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
 	   				new File("button-10.wav"));
@@ -250,7 +247,8 @@ private void menu() {
 	   				clip.start();
 	   				} catch (Exception error) {
 	   				error.printStackTrace();
-	   				}
+	   				}	
+	   			quitDialog();
 	   		}else if(source==newWindow){
 	   			test1 x = new test1("keyartihi (800x411).jpg");
 	   			try {
@@ -267,16 +265,76 @@ private void menu() {
 	   				}
 	   			
 	   		}else if(source==author){
+	   			try {
+	   				AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
+	   				new File("button-10.wav"));
+	   				Clip clip = AudioSystem.getClip();
+	   				clip.open(audioInputStream);
+	   				FloatControl gainControl =
+	   				(FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+	   				/*gainControl.setValue(-10.0f);*/ // Reduce volume by 10 decibels.
+	   				clip.start();
+	   				} catch (Exception error) {
+	   				error.printStackTrace();
+	   				}	
 	   			showAuthor();
 	   		}else if(source==logOut){
 	   			logOut();
+	   			try {
+	   				AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
+	   				new File("button-10.wav"));
+	   				Clip clip = AudioSystem.getClip();
+	   				clip.open(audioInputStream);
+	   				FloatControl gainControl =
+	   				(FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+	   				/*gainControl.setValue(-10.0f);*/ // Reduce volume by 10 decibels.
+	   				clip.start();
+	   				} catch (Exception error) {
+	   				error.printStackTrace();
+	   				}
 	   		}else if(source==soundSet){
 	   			soundSet();
+	   			try {
+	   				AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
+	   				new File("button-10.wav"));
+	   				Clip clip = AudioSystem.getClip();
+	   				clip.open(audioInputStream);
+	   				FloatControl gainControl =
+	   				(FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+	   				/*gainControl.setValue(-10.0f);*/ // Reduce volume by 10 decibels.
+	   				clip.start();
+	   				} catch (Exception error) {
+	   				error.printStackTrace();
+	   				}
 	   		}else if(source==h){
-	   			showHelpDialog();
+	   			try {
+	   				AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
+	   				new File("button-10.wav"));
+	   				Clip clip = AudioSystem.getClip();
+	   				clip.open(audioInputStream);
+	   				FloatControl gainControl =
+	   				(FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+	   				/*gainControl.setValue(-10.0f);*/ // Reduce volume by 10 decibels.
+	   				clip.start();
+	   				} catch (Exception error) {
+	   				error.printStackTrace();
+	   				}
+	   			showHelpDialog();	
 	   			System.out.println("hey");
 	   		}else if(source==customIce){
 	   			createCustomFrame();
+	   			try {
+	   				AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
+	   				new File("button-10.wav"));
+	   				Clip clip = AudioSystem.getClip();
+	   				clip.open(audioInputStream);
+	   				FloatControl gainControl =
+	   				(FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+	   				/*gainControl.setValue(-10.0f);*/ // Reduce volume by 10 decibels.
+	   				clip.start();
+	   				} catch (Exception error) {
+	   				error.printStackTrace();
+	   				}
 	   		}
 			
 			
@@ -336,6 +394,7 @@ private void menu() {
 				e.printStackTrace();
 			}
 	   		
+	   		
 		}
 
 		private void quitDialog() {
@@ -367,20 +426,17 @@ private void menu() {
 	@Override
 	public void mousePressed(MouseEvent e) {
 		
-		
 	}
 	@Override
 	public void mouseReleased(MouseEvent e) {
-
 		
 	}
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		
-}
+	}
 	@Override
 	public void mouseMoved(MouseEvent arg0) {
-		// TODO Auto-generated method stub
 		
 	}
 	public class ButtonListener implements ActionListener{
@@ -390,22 +446,103 @@ private void menu() {
 			JButton source = (JButton) e.getSource();
 			
 			if(source==yell){
-				
+				try {
+					AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
+					new File("button-10.wav"));
+					Clip clip = AudioSystem.getClip();
+					clip.open(audioInputStream);
+					FloatControl gainControl =
+					(FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+					/*gainControl.setValue(-10.0f);*/ // Reduce volume by 10 decibels.
+					clip.start();
+					} catch (Exception error) {
+					error.printStackTrace();
+					}	
 				yellMethod();
 				//System.out.println(chatField.getText());
 			}else if(source==talk){
-				
+				try {
+					AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
+					new File("button-10.wav"));
+					Clip clip = AudioSystem.getClip();
+					clip.open(audioInputStream);
+					FloatControl gainControl =
+					(FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+					/*gainControl.setValue(-10.0f);*/ // Reduce volume by 10 decibels.
+					clip.start();
+					} catch (Exception error) {
+					error.printStackTrace();
+					}	
 				talkMethod();
 				//System.out.println(chatField.getText());
 			}else if(source==zoomIn){
 				zIn();
+				try {
+					AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
+					new File("button-10.wav"));
+					Clip clip = AudioSystem.getClip();
+					clip.open(audioInputStream);
+					FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+					/*gainControl.setValue(-10.0f);*/ // Reduce volume by 10 decibels.
+					clip.start();
+					} catch (Exception error) {
+					error.printStackTrace();
+					}
 			}else if(source==zoomOut){
 				zOut();
+				try {
+					AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
+					new File("button-10.wav"));
+					Clip clip = AudioSystem.getClip();
+					clip.open(audioInputStream);
+					FloatControl gainControl =
+					(FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+					/*gainControl.setValue(-10.0f);*/ // Reduce volume by 10 decibels.
+					clip.start();
+					} catch (Exception error) {
+					error.printStackTrace();
+					}	
 			}else if(source==refresh){
-				
+				try {
+					AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
+					new File("button-10.wav"));
+					Clip clip = AudioSystem.getClip();
+					clip.open(audioInputStream);
+					FloatControl gainControl =
+					(FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+					/*gainControl.setValue(-10.0f);*/ // Reduce volume by 10 decibels.
+					clip.start();
+					} catch (Exception error) {
+					error.printStackTrace();
+					}	
 			}else if(source==talkDuration){
+				try {
+	   				AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
+	   				new File("button-10.wav"));
+	   				Clip clip = AudioSystem.getClip();
+	   				clip.open(audioInputStream);
+	   				FloatControl gainControl =
+	   				(FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+	   				/*gainControl.setValue(-10.0f);*/ // Reduce volume by 10 decibels.
+	   				clip.start();
+	   				} catch (Exception error) {
+	   				error.printStackTrace();
+	   				}
 				createTalkSet();
+				
 			}else if(source==logOutB){
+				try {
+	   				AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
+	   				new File("button-10.wav"));
+	   				Clip clip = AudioSystem.getClip();
+	   				clip.open(audioInputStream);
+	   				FloatControl gainControl =
+	   				(FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+	   				/*gainControl.setValue(-10.0f);*/ // Reduce volume by 10 decibels.
+	   				clip.start();
+	   				} catch (Exception error) {
+	   				error.printStackTrace();
+	   				}
 				test1.immigration.logout();
 				dispose();
 				test1 x = new test1("keyartihi (800x411).jpg");
@@ -450,7 +587,6 @@ private void menu() {
 			soundControl.add(talkSlider);
 			soundControl.setVisible(true);
 		}
-		
 	}
 	public class TextFieldListener implements ActionListener{
 

@@ -16,8 +16,6 @@ import java.util.LinkedList;
 import java.util.Map;
 import org.json.simple.parser.*;
 
-import ICEPort.SFX;
-
 
 import javax.imageio.ImageIO;
 import javax.sound.sampled.AudioInputStream;
@@ -46,7 +44,6 @@ public class Customize extends JFrame{
 	 //ImageIcon bodyIcon = new ImageIcon();
 	 JButton bDown, bUp, hDown, hUp, sDown, sUp, wDown, wUp,btnCancel, btnOk;
 	 ButtonListener b = new ButtonListener();
-	 private SFX sf;
 	 
 	public static void main(String [] args) throws IOException{
 		Customize c = new Customize();
@@ -411,8 +408,6 @@ public class Customize extends JFrame{
 		public void actionPerformed(ActionEvent e) {
 			JButton source = (JButton)e.getSource();
 			if(source==bUp){
-				File sfx = new File("button-20.wav");
-	   			sf = new SFX(sfx);
 				if(bodyIndex==body.length-1)
 					bodyIndex=0;
 				++bodyIndex;
@@ -422,8 +417,6 @@ public class Customize extends JFrame{
 						e1.printStackTrace();
 					}
 			}else if(source==bDown){
-				File sfx = new File("button-20.wav");
-	   			sf = new SFX(sfx);
 				if(bodyIndex==0)
 					bodyIndex=body.length-1;
 				--bodyIndex;
@@ -433,8 +426,6 @@ public class Customize extends JFrame{
 						e1.printStackTrace();
 					}
 			}else if(source==hUp){
-				File sfx = new File("button-20.wav");
-	   			sf = new SFX(sfx);
 				if(headIndex==head.length-1)
 					headIndex=0;
 				++headIndex;
@@ -444,8 +435,6 @@ public class Customize extends JFrame{
 						e1.printStackTrace();
 					}
 			}else if(source==hDown){
-				File sfx = new File("button-20.wav");
-	   			sf = new SFX(sfx);
 				if(headIndex==0)
 					headIndex=head.length-1;
 				--headIndex;
@@ -455,8 +444,6 @@ public class Customize extends JFrame{
 						e1.printStackTrace();
 					}
 			}else if(source==sUp){
-				File sfx = new File("button-20.wav");
-	   			sf = new SFX(sfx);
 				if(shirtIndex==shirt.length-1)
 					shirtIndex=0;
 				++shirtIndex;
@@ -466,8 +453,6 @@ public class Customize extends JFrame{
 						e1.printStackTrace();
 					}
 			}else if(source==sDown){
-				File sfx = new File("button-20.wav");
-	   			sf = new SFX(sfx);
 				if(shirtIndex==0)
 					shirtIndex=shirt.length-1;
 				--shirtIndex;
@@ -477,8 +462,6 @@ public class Customize extends JFrame{
 						e1.printStackTrace();
 					}
 			}else if(source==wUp){
-				File sfx = new File("button-20.wav");
-	   			sf = new SFX(sfx);
 				if(weaponIndex==weapon.length-1)
 					weaponIndex=0;
 				++weaponIndex;
@@ -488,8 +471,6 @@ public class Customize extends JFrame{
 						e1.printStackTrace();
 					}
 			}else if(source==wDown){
-				File sfx = new File("button-20.wav");
-	   			sf = new SFX(sfx);
 				if(weaponIndex==0)
 					weaponIndex=weapon.length-1;
 				--weaponIndex;
@@ -499,8 +480,6 @@ public class Customize extends JFrame{
 						e1.printStackTrace();
 					}
 			}else if (source == btnOk){
-				File sfx = new File("button-3.wav");
-	   			sf = new SFX(sfx);
 				IcetizenLook a = new IcetizenLook();
 				a.gidB = body[bodyIndex];
 				a.gidH = head[headIndex];
@@ -510,8 +489,6 @@ public class Customize extends JFrame{
 				dispose();
 				
 			}else if (source == btnCancel){
-				File sfx = new File("button-3.wav");
-	   			sf = new SFX(sfx);
 				dispose();
 			}
 			

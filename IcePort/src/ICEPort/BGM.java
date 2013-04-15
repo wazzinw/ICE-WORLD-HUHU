@@ -71,7 +71,7 @@ public class BGM extends JComponent {
         button.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent event1) {
         		play();
-        		//setVisible(false);
+        		//setVisible(true);
         		}
         	});
         setLayout(new GridLayout(0, 1, 0, 0));

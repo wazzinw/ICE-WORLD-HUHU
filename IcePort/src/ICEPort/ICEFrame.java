@@ -46,7 +46,7 @@ public class ICEFrame extends JFrame implements MouseMotionListener,MouseListene
 	private GridProjection iso = new GridProjection();
 	private JScrollPane scroll = new JScrollPane();
 	private JMenuBar menuBar;
-	private JMenuItem newWindow,logOut,quit,soundSet,customIce,author,h;
+	private JMenuItem newWindow,logOut,quit,soundSet,customIce,author,h, sfxSet;
 	private JMenu file,edit,help;
 	private MenuListener l = new MenuListener();
 	private ButtonListener b = new ButtonListener();
@@ -57,6 +57,9 @@ public class ICEFrame extends JFrame implements MouseMotionListener,MouseListene
 	private TopPane top;
 	private BottomPane bottom = new BottomPane();
 	private BGM bg;
+	
+	private SFX sf;
+	
 	JFrame bgf = new JFrame();
 	
 	public ICEFrame() {
@@ -71,10 +74,10 @@ public class ICEFrame extends JFrame implements MouseMotionListener,MouseListene
 	}
 	private void setGUI() {
 		File bgm = new File("Track1.wav");
-		//bg = new BGM(bgm);
-		//bgf.add(bg);
+		bg = new BGM(bgm);
+		bgf.add(bg);
 		
-		top = new TopPane("");
+		top = new TopPane("raining");
 		//Scroll Pane
 		scroll = new JScrollPane(iso);
 		scroll.setWheelScrollingEnabled(true);
@@ -218,6 +221,7 @@ public class ICEFrame extends JFrame implements MouseMotionListener,MouseListene
   		soundSet = new JMenuItem("Sound Setting");
   		soundSet.addActionListener(l);
   		
+  		
   		edit.add(customIce);
   		edit.add(soundSet);
   		
@@ -233,108 +237,39 @@ public class ICEFrame extends JFrame implements MouseMotionListener,MouseListene
 	public class MenuListener implements ActionListener{
 
 		@Override
+		
 		public void actionPerformed(ActionEvent e) {
+			
 			JMenuItem source = (JMenuItem) e.getSource();
 	   		if(source==quit){
-	   			try {
-	   				AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
-	   				new File("button-10.wav"));
-	   				Clip clip = AudioSystem.getClip();
-	   				clip.open(audioInputStream);
-	   				FloatControl gainControl =
-	   				(FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-	   				/*gainControl.setValue(-10.0f);*/ // Reduce volume by 10 decibels.
-	   				clip.start();
-	   				} catch (Exception error) {
-	   				error.printStackTrace();
-	   				}	
+	   			File sfx = new File("button-10.wav");
+	   			sf = new SFX(sfx);	
 	   			quitDialog();
 	   		}else if(source==newWindow){
-	   			test1 x = new test1("keyartihi (800x411).jpg");
-	   			try {
-	   				AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
-	   				new File("button-10.wav"));
-	   				Clip clip = AudioSystem.getClip();
-	   				clip.open(audioInputStream);
-	   				FloatControl gainControl =
-	   				(FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-	   				/*gainControl.setValue(-10.0f);*/ // Reduce volume by 10 decibels.
-	   				clip.start();
-	   				} catch (Exception error) {
-	   				error.printStackTrace();
-	   				}
-	   			
+	   			File sfx = new File("MSN.wav");
+	   			sf = new SFX(sfx);
+	   			test1 x = new test1("keyartihi (800x411).jpg");	   			
 	   		}else if(source==author){
-	   			try {
-	   				AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
-	   				new File("button-10.wav"));
-	   				Clip clip = AudioSystem.getClip();
-	   				clip.open(audioInputStream);
-	   				FloatControl gainControl =
-	   				(FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-	   				/*gainControl.setValue(-10.0f);*/ // Reduce volume by 10 decibels.
-	   				clip.start();
-	   				} catch (Exception error) {
-	   				error.printStackTrace();
-	   				}	
+	   			File sfx = new File("MSN.wav");
+	   			sf = new SFX(sfx);	
 	   			showAuthor();
 	   		}else if(source==logOut){
+	   			File sfx = new File("button-3.wav");
+	   			sf = new SFX(sfx);
 	   			logOut();
-	   			try {
-	   				AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
-	   				new File("button-10.wav"));
-	   				Clip clip = AudioSystem.getClip();
-	   				clip.open(audioInputStream);
-	   				FloatControl gainControl =
-	   				(FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-	   				/*gainControl.setValue(-10.0f);*/ // Reduce volume by 10 decibels.
-	   				clip.start();
-	   				} catch (Exception error) {
-	   				error.printStackTrace();
-	   				}
 	   		}else if(source==soundSet){
 	   			soundSet();
-	   			try {
-	   				AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
-	   				new File("button-10.wav"));
-	   				Clip clip = AudioSystem.getClip();
-	   				clip.open(audioInputStream);
-	   				FloatControl gainControl =
-	   				(FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-	   				/*gainControl.setValue(-10.0f);*/ // Reduce volume by 10 decibels.
-	   				clip.start();
-	   				} catch (Exception error) {
-	   				error.printStackTrace();
-	   				}
+	   			File sfx = new File("MSN.wav");
+	   			sf = new SFX(sfx);	
 	   		}else if(source==h){
-	   			try {
-	   				AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
-	   				new File("button-10.wav"));
-	   				Clip clip = AudioSystem.getClip();
-	   				clip.open(audioInputStream);
-	   				FloatControl gainControl =
-	   				(FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-	   				/*gainControl.setValue(-10.0f);*/ // Reduce volume by 10 decibels.
-	   				clip.start();
-	   				} catch (Exception error) {
-	   				error.printStackTrace();
-	   				}
+	   			File sfx = new File("MSN.wav");
+	   			sf = new SFX(sfx);	
 	   			showHelpDialog();	
 	   			System.out.println("hey");
 	   		}else if(source==customIce){
 	   			createCustomFrame();
-	   			try {
-	   				AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
-	   				new File("button-10.wav"));
-	   				Clip clip = AudioSystem.getClip();
-	   				clip.open(audioInputStream);
-	   				FloatControl gainControl =
-	   				(FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-	   				/*gainControl.setValue(-10.0f);*/ // Reduce volume by 10 decibels.
-	   				clip.start();
-	   				} catch (Exception error) {
-	   				error.printStackTrace();
-	   				}
+	   			File sfx = new File("MSN.wav");
+	   			sf = new SFX(sfx);	
 	   		}
 			
 			
@@ -398,7 +333,7 @@ public class ICEFrame extends JFrame implements MouseMotionListener,MouseListene
 		}
 
 		private void quitDialog() {
-			//test1.immigration.logout();
+			//test1.immigration.();
 			dispose();
 			System.exit(0);
 			
@@ -446,103 +381,33 @@ public class ICEFrame extends JFrame implements MouseMotionListener,MouseListene
 			JButton source = (JButton) e.getSource();
 			
 			if(source==yell){
-				try {
-					AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
-					new File("button-10.wav"));
-					Clip clip = AudioSystem.getClip();
-					clip.open(audioInputStream);
-					FloatControl gainControl =
-					(FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-					/*gainControl.setValue(-10.0f);*/ // Reduce volume by 10 decibels.
-					clip.start();
-					} catch (Exception error) {
-					error.printStackTrace();
-					}	
-				yellMethod();
+				File sfx = new File("MSN.wav");
+	   			sf = new SFX(sfx);	
 				//System.out.println(chatField.getText());
 			}else if(source==talk){
-				try {
-					AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
-					new File("button-10.wav"));
-					Clip clip = AudioSystem.getClip();
-					clip.open(audioInputStream);
-					FloatControl gainControl =
-					(FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-					/*gainControl.setValue(-10.0f);*/ // Reduce volume by 10 decibels.
-					clip.start();
-					} catch (Exception error) {
-					error.printStackTrace();
-					}	
+				File sfx = new File("MSN.wav");
+	   			sf = new SFX(sfx);	
 				talkMethod();
 				//System.out.println(chatField.getText());
 			}else if(source==zoomIn){
 				zIn();
-				try {
-					AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
-					new File("button-10.wav"));
-					Clip clip = AudioSystem.getClip();
-					clip.open(audioInputStream);
-					FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-					/*gainControl.setValue(-10.0f);*/ // Reduce volume by 10 decibels.
-					clip.start();
-					} catch (Exception error) {
-					error.printStackTrace();
-					}
+				File sfx = new File("button-9.wav");
+	   			sf = new SFX(sfx);	
 			}else if(source==zoomOut){
 				zOut();
-				try {
-					AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
-					new File("button-10.wav"));
-					Clip clip = AudioSystem.getClip();
-					clip.open(audioInputStream);
-					FloatControl gainControl =
-					(FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-					/*gainControl.setValue(-10.0f);*/ // Reduce volume by 10 decibels.
-					clip.start();
-					} catch (Exception error) {
-					error.printStackTrace();
-					}	
+				File sfx = new File("button-9.wav");
+	   			sf = new SFX(sfx);	
 			}else if(source==refresh){
-				try {
-					AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
-					new File("button-10.wav"));
-					Clip clip = AudioSystem.getClip();
-					clip.open(audioInputStream);
-					FloatControl gainControl =
-					(FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-					/*gainControl.setValue(-10.0f);*/ // Reduce volume by 10 decibels.
-					clip.start();
-					} catch (Exception error) {
-					error.printStackTrace();
-					}	
+				File sfx = new File("button-3.wav");
+	   			sf = new SFX(sfx);	
 			}else if(source==talkDuration){
-				try {
-	   				AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
-	   				new File("button-10.wav"));
-	   				Clip clip = AudioSystem.getClip();
-	   				clip.open(audioInputStream);
-	   				FloatControl gainControl =
-	   				(FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-	   				/*gainControl.setValue(-10.0f);*/ // Reduce volume by 10 decibels.
-	   				clip.start();
-	   				} catch (Exception error) {
-	   				error.printStackTrace();
-	   				}
+				File sfx = new File("button-3.wav");
+	   			sf = new SFX(sfx);	
 				createTalkSet();
 				
 			}else if(source==logOutB){
-				try {
-	   				AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
-	   				new File("button-10.wav"));
-	   				Clip clip = AudioSystem.getClip();
-	   				clip.open(audioInputStream);
-	   				FloatControl gainControl =
-	   				(FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-	   				/*gainControl.setValue(-10.0f);*/ // Reduce volume by 10 decibels.
-	   				clip.start();
-	   				} catch (Exception error) {
-	   				error.printStackTrace();
-	   				}
+				File sfx = new File("button-3.wav");
+	   			sf = new SFX(sfx);
 				test1.immigration.logout();
 				dispose();
 				test1 x = new test1("keyartihi (800x411).jpg");

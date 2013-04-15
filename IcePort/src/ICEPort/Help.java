@@ -5,6 +5,7 @@ import java.awt.*;
 import javax.swing.*;
 
 import java.awt.Dialog;
+import java.io.File;
 import java.net.MalformedURLException;
 
 import javax.swing.JDialog;
@@ -16,7 +17,7 @@ import javax.swing.SwingUtilities;
 
 public class Help extends JDialog{
 
-
+	private SFX sf;
 	JPanel panel1,panel2,panel3,panel4,panel5,panel6,panel7,panel8;
 
 	public Help()  throws MalformedURLException {
@@ -59,6 +60,7 @@ public class Help extends JDialog{
             @Override
             public void run() {
                 try {
+                	
                     new Help();
                 } catch ( MalformedURLException e) {
                    
@@ -84,6 +86,7 @@ JButton b3= new JButton("<html>**AS FOR THE SENDER**<br> You can send file to yo
 		"THE RECEIVER** <br>You will get the prompt popup whether<br>you want to accept file or not</html>");
 
 panel3.add(b3);
+
 // panel 4
 panel4 = new JPanel();
 

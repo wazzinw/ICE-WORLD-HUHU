@@ -13,6 +13,9 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
 import javax.swing.*;
+
+import ICEPort.SFX;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseListener;
@@ -42,7 +45,7 @@ public class test1 extends JFrame {
 	JScrollPane scrollPane;
 	final JList<Object> list = new JList<Object>();
 	String[]values;
-
+	private SFX sf;
 
 	public void changeToAlien(){
 		this.setVisible(false);
@@ -145,18 +148,8 @@ public class test1 extends JFrame {
 
 		btnLogin1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try {
-					AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
-					new File("button-10.wav"));
-					Clip clip = AudioSystem.getClip();
-					clip.open(audioInputStream);
-					FloatControl gainControl =
-					(FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-					/*gainControl.setValue(-10.0f);*/ // Reduce volume by 10 decibels.
-					clip.start();
-					} catch (Exception error) {
-					error.printStackTrace();
-					}
+				File sfx = new File("button-9.wav");
+	   			sf = new SFX(sfx);
 
 				int i;
 				boolean c = false;
@@ -374,7 +367,8 @@ public class test1 extends JFrame {
 
 			///////////////ActionListener Alien/////////////
 			public void actionPerformed(ActionEvent e) {
-
+				File sfx = new File("button-9.wav");
+	   			sf = new SFX(sfx);
 				TestMyIcetizen tester = new TestMyIcetizen();
 				tester.setIcePortID(251);
 				tester.setListeningPort(200);
@@ -382,7 +376,7 @@ public class test1 extends JFrame {
 				immigration = new ICEWorldImmigration(tester);
 
 				if (immigration.loginAlien())
-				{
+				{	
 					immigration.walk(15,88);
 					System.out.println("Login OK");
 					dispose();

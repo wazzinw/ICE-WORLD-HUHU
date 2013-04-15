@@ -35,7 +35,7 @@ public class rain extends Applet implements Runnable{
 	}
 	public void paint(Graphics g){
 		Dimension d = this.getSize();
-		g.setColor(Color.WHITE);
+		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, d.width, d.height);
 		draw(g,d);
 		

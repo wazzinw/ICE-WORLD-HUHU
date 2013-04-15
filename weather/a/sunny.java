@@ -61,7 +61,7 @@ public class sunny extends Applet implements Runnable {
 	}
 public static void draw(Graphics g,Dimension d){
 		
-	Image  sunImage = Toolkit.getDefaultToolkit().getImage("sunglasses2smaller.gif");
+	Image  sunImage = Toolkit.getDefaultToolkit().getImage("sunglasses2smaller.png");
 	Image  cloudImage = Toolkit.getDefaultToolkit().getImage("two_glossy_cloud_S.png");
 	
 	int cloudwidth = cloudImage.getHeight(null);

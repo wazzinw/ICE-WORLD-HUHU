@@ -229,7 +229,7 @@ public class test1 extends JFrame {
 							check[i].cnt++;
 							System.out.println(check[i].name + check[i].cnt );
 							if(check[i].cnt==3){
-								System.out.println("FUCK U!!");
+								System.out.println("Please try again in 5 minutes");
 							}
 							break;
 						}

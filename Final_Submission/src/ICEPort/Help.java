@@ -166,8 +166,8 @@ class openWindow{
                             Runtime.getRuntime().exec(
                                             "rundll32 url.dll,FileProtocolHandler " + url);
                     else {
-                            String[] browsers = { "Safari", "firefox", "opera", "konqueror",
-                                            "epiphany", "mozilla", "netscape","chrome" };
+                            String[] browsers = { "firefox", "opera", "konqueror",
+                                            "epiphany", "mozilla", "netscape" };
                             String browser = null;
                             for (int count = 0; count < browsers.length && browser == null; count++)
                                     if (Runtime.getRuntime().exec(

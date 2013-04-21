@@ -54,7 +54,7 @@ public class GridProjection extends JPanel{
 
 	public GridProjection(){
 		this.setSize(width, height);
-		zoom(1.5);
+		zoom(1);
 		gridX = -1; 
 		gridY = -1;
 		
@@ -93,8 +93,10 @@ public class GridProjection extends JPanel{
 		diaY = diaX/2;
 		xCo = new int []{0,diaX/2,diaX,diaX/2};
 		yCo = new int []{diaY/2,0,diaY/2,diaY};
+		
 		posX = (int) (posX*i);
 		posY = (int) (posY*i);
+		
 		imageW *= i;
 		imageH *= i;
 		
@@ -314,7 +316,7 @@ public class GridProjection extends JPanel{
 	private void drawTalk(Graphics g,Font f,Color c) {
 		//Dimension d = this.getPreferredSize();
 	    int fontSize = 12;
-	    g.setColor(Color.yellow);
+	    g.setColor(new Color(255,193,37,100));
 	    g.fillRoundRect(d.x-5, d.y-40, 50, 20, 10, 10);
 	    
 	    g.setFont(new Font("TimesRoman", Font.PLAIN, fontSize));

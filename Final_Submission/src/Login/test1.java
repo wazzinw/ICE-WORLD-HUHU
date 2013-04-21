@@ -48,6 +48,7 @@ public class test1 extends JFrame {
 	String[]values;
 	private SFX sf;
 	public static String user;
+	boolean chill = true;
 
 
 	public void changeToAlien(){
@@ -173,80 +174,179 @@ public class test1 extends JFrame {
 
 
 
-				immigration = new ICEWorldImmigration(activeUser);
+//				immigration = new ICEWorldImmigration(activeUser);
+//
+//				if (immigration.login(pass))
+//				{
+//					//immigration.walk(20,88);
+//					//immigration.customization(look);
+//					System.out.println("Login OK");
+//					dispose();
+//
+//					splashScreen sc = new splashScreen();
+//					Thread a = new Thread(sc);
+//					a.start();
+//
+//
+//
+//
+//					try {
+//
+//						Scanner inn = new Scanner(new File("SuggesttedUser.txt"));
+//
+//						BufferedWriter outt = new BufferedWriter(new FileWriter("SuggesttedUser.txt",true));
+//
+//						while(inn.hasNext()){
+//							//System.out.println(inn.nextLine());
+//							if(user.equals(inn.nextLine())){
+//								c = true;
+//							}
+//						}
+//						if(!c){
+//							outt.write(user);
+//							outt.newLine();
+//
+//						}
+//
+//						inn.close();
+//						outt.close();
+//
+//					} catch (FileNotFoundException e1) {
+//						// TODO Auto-generated catch block
+//						e1.printStackTrace();
+//					} catch (IOException e1) {
+//						// TODO Auto-generated catch block
+//						e1.printStackTrace();
+//					}
+//
+//
+//
+//
+//				}else{
+//					System.out.println("huhu");
+//					for( i =0;i<numdat;i++){
+//
+//						if(user.equals(check[i].name)){						
+//							check[i].cnt++;
+//							System.out.println(check[i].name + check[i].cnt );
+//							if(check[i].cnt==3){
+//								System.out.println("Please try again in 5 minutes");
+//							}
+//							break;
+//						}
+//					}
+//					if(i==numdat){
+//						//System.out.println("i = "+i);
+//
+//						NameCheck a = new NameCheck(user);
+//
+//						check[numdat]= a;
+//						System.out.println(check[numdat].name + check[numdat].cnt );
+//						numdat++;
+//
+//
+//
+//					}
+//				}
+//			}
+//
+//
+//		});
+immigration = new ICEWorldImmigration(activeUser);
+				
 
-				if (immigration.login(pass))
-				{
-					//immigration.walk(20,88);
-					//immigration.customization(look);
-					System.out.println("Login OK");
-					dispose();
-
-					splashScreen sc = new splashScreen();
-					Thread a = new Thread(sc);
-					a.start();
-
-
-
-
-					try {
-
-						Scanner inn = new Scanner(new File("SuggesttedUser.txt"));
-
-						BufferedWriter outt = new BufferedWriter(new FileWriter("SuggesttedUser.txt",true));
-
-						while(inn.hasNext()){
-							//System.out.println(inn.nextLine());
-							if(user.equals(inn.nextLine())){
-								c = true;
-							}
-						}
-						if(!c){
-							outt.write(user);
-							outt.newLine();
-
-						}
-
-						inn.close();
-						outt.close();
-
-					} catch (FileNotFoundException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-
-
-
-
-				}else{
-					System.out.println("huhu");
-					for( i =0;i<numdat;i++){
-
-						if(user.equals(check[i].name)){						
-							check[i].cnt++;
-							System.out.println(check[i].name + check[i].cnt );
-							if(check[i].cnt==3){
-								System.out.println("Please try again in 5 minutes");
-							}
-							break;
-						}
-					}
-					if(i==numdat){
-						//System.out.println("i = "+i);
-
-						NameCheck a = new NameCheck(user);
-
-						check[numdat]= a;
-						System.out.println(check[numdat].name + check[numdat].cnt );
-						numdat++;
-
-
-
+				for( i =0;i<numdat;i++){
+					chill = true;
+					if(user.equals(check[i].name)&&check[i].cnt ==3){		
+						System.out.println(""+check[i].name+check[i].cnt );
+						chill = false;
+						break;
 					}
 				}
+
+				if(chill){
+					if (immigration.login(pass))
+					{
+						//immigration.walk(20,88);
+						//immigration.customization(look);
+						System.out.println("Login OK");
+						dispose();
+
+						splashScreen sc = new splashScreen();
+						Thread a = new Thread(sc);
+						a.start();
+
+
+
+
+						try {
+
+							Scanner inn = new Scanner(new File("SuggesttedUser.txt"));
+
+							BufferedWriter outt = new BufferedWriter(new FileWriter("SuggesttedUser.txt",true));
+
+							while(inn.hasNext()){
+								//System.out.println(inn.nextLine());
+								if(user.equals(inn.nextLine())){
+									c = true;
+								}
+							}
+							if(!c){
+								outt.write(user);
+								outt.newLine();
+
+							}
+
+							inn.close();
+							outt.close();
+
+						} catch (FileNotFoundException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+
+
+
+
+					}else{
+						System.out.println("huhu");
+						for( i =0;i<numdat;i++){
+
+							if(user.equals(check[i].name)){						
+								check[i].cnt++;
+								//							System.out.println(check[i].name + check[i].cnt );
+								JOptionPane.showMessageDialog(null, check[i].name + " failed: "+check[i].cnt);
+								if(check[i].cnt==3){
+									//								System.out.println("FUCK U!!");
+									Thread b = new Thread(check[i]);
+									b.start();
+									
+								JOptionPane.showMessageDialog(null, "Please try again in "+check[i].timer+" minutes");
+									
+								}
+								break;
+							}
+						}
+						if(i==numdat){
+							//System.out.println("i = "+i);
+
+							NameCheck a = new NameCheck(user);
+							
+
+							check[numdat]= a;
+							//						System.out.println(check[numdat].name + check[numdat].cnt );
+							JOptionPane.showMessageDialog(null, check[numdat].name + " Login failed: "+check[numdat].cnt);
+							numdat++;
+
+
+
+						}
+					}
+				}else 	if(check[i].timer>1)	JOptionPane.showMessageDialog(null, "Please try again in "+check[i].timer+" minutes");
+				else JOptionPane.showMessageDialog(null, "Please try again in "+check[i].timer+" minute");
 			}
 
 
